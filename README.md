@@ -11,9 +11,9 @@ To start you will want to install Minikube and kubectl following the instruction
 https://kubernetes.io/docs/tasks/tools/install-minikube/
 
 then launch minikube with 8 GB RAM
-
+```
 minikube start --memory 8192
-
+```
 If you want to set this as default on minikube, 
 ```
 minikube config set memory 8192

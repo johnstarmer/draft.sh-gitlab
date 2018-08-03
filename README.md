@@ -25,9 +25,9 @@ You will need to delete and restart minikube to initialize this setting.
 helm init --upgrade
 ```
 Install RBAC rules:
-
+```
 kubectl create -f rbac.yaml
-
+```
 ### Install Draft
 Follow the draft install instructions here:
 https://github.com/Azure/draft/blob/master/docs/quickstart.md

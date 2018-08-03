@@ -1,6 +1,9 @@
 # draft.sh-gitlab
 Setting up draft.sh with a gitlab repository
-
+### Clone the lab repository to your computer
+```
+git clone https://github.com/kumulustech/draft.sh-gitlab draft
+```
 ### Deploy a Kubernetes cluster
 Note: Gitlab recommends a Kubernetes cluster, version 1.8 or higher. 6vCPU and 16GB of RAM.
 

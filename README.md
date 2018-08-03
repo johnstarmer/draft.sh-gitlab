@@ -52,7 +52,7 @@ eval $(minikube docker-env)
 ### Using Draft - Draft Create
 Switch to the folder containing the example application code.
 ```
-cd example_app
+cd example-app
 ```
 Now we'll have draft create a helm chart, Docker file and draft.toml file for our application with 
 ```

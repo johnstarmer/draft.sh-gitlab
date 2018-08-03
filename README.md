@@ -49,4 +49,34 @@ If you just want to try out Draft, the following will allow Draft to build image
 ```
 eval $(minikube docker-env)
 ```
+### Using Draft - Draft Create
+Switch to the folder containing the example application code.
+```
+cd example_app
+```
+Now we'll have draft create a helm chart, Docker file and draft.toml file for our application with 
+```
+draft create
+```
+Verify the new files were created
+```
+ls -a
+```
+Take a look at the draft.toml file that basic configuration details about our app
+```
+cat draft.toml
+```
+Other files that were created by Draft are
+
+```.draftignore``` - specifies files for Draft to ignore (with a similar syntax to .helmignore)
+
+```.dockerignore``` - specifies files for Docker to ignore
+
+```.draft-tasks.toml``` - allows you to specify tasks to run before or after running ```draft up``` or cleanup tasks to run after ```draft delete```
+
+### Deploy your application to Kubernetes
+Finally, it's time to run 
+```
+draft up
+```
 

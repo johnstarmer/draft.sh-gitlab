@@ -7,16 +7,15 @@ Note: Gitlab recommends a Kubernetes cluster, version 1.8 or higher. 6vCPU and 1
 To start you will want to install Minikube and kubectl following the instructions here: 
 https://kubernetes.io/docs/tasks/tools/install-minikube/
 
-then launch minikube with 8 GB RAM and 30 GB disk space
+then launch minikube with 8 GB RAM
 
-minikube start --memory 8192 --disk-size 30GB
+minikube start --memory 8192
 
-If you want to set these as defaults on minikube, 
+If you want to set this as default on minikube, 
 ```
 minikube config set memory 8192
-minikube config set disk-size 30GB
 ```
-You will need to delete and restart minikube to initialize these settings.
+You will need to delete and restart minikube to initialize this setting.
 
 ### Install and configure Helm
 - Helm is a Kubernetes package manager. With it, you can install and manage Kubernetes manifests, aka "Helm charts", on your Kubernetes cluster.

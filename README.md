@@ -24,3 +24,26 @@ You will need to delete and restart minikube to initialize this setting.
 ```
 helm init --upgrade
 ```
+Install RBAC rules:
+
+kubectl create -f rbac.yaml
+
+### Install Draft
+Follow the draft install instructions here:
+https://github.com/Azure/draft/blob/master/docs/quickstart.md
+
+Verify Draft has been installed correctly:
+
+```
+draft version
+```
+Initialize Draft
+```
+draft init
+```
+### Setup your application repository
+If you just want to try out Draft, the following will allow Draft to build images directly using Minikube's Docker daemon without needing to set up a remote/external container registry.
+```
+eval $(minikube docker-env)
+```
+

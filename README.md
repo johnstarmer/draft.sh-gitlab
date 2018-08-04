@@ -79,4 +79,8 @@ Finally, it's time to run
 ```
 draft up
 ```
-
+If you get success messages on both the Docker build process and application release process, your application should be good. If not, run the "inspect logs" command provided in the launch output. 
+Verify your app is running with 
+```
+kubectl get pods
+```

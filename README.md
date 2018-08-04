@@ -80,7 +80,51 @@ Finally, it's time to run
 draft up
 ```
 If you get success messages on both the Docker build process and application release process, your application should be good. If not, run the "inspect logs" command provided in the launch output. 
-Verify your app is running with 
+Verify your application pod is running with 
 ```
 kubectl get pods
 ```
+### Interact with your application
+```
+draft connect
+```
+Note the {LOCALHOST_PORT} your application has been assigned and in a new terminal window run:
+```curl localhost:{LOCALHOST_PORT}```
+You should get the expected ```"Hello, World!"``` output.
+You can now ```CTRL-C``` to cancel the ```draft connect``` session.
+
+### Update your application
+Let's change the application to output "Hello, Draft!" instead of "Hello, World!"
+
+```
+cat <<EOF > app.py
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello, Draft!\n"
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=8080)
+EOF
+```
+### Draft Up(grade)
+This time when we call ```draft up```, Draft recognizes the Helm release already exists and will run a ```helm upgrade``` rather than a new install. This time, let's add the --auto-connect flag to our ```draft up``` command to automatically connect after the upgrade completes.
+```
+draft up --auto-connect
+```
+### Cleanup with Draft Delete
+If you are done running the application, you can now run
+```
+draft delete
+```
+to delete the application from your Kubernetes cluster. Check on the application's status with:
+```
+kubectl get pods
+```
+
+You will initially see the pod status as "TERMINATING" and finally get a "No resources found" message when the deletion is complete.
+
+Note: ```draft delete``` does _not_ remove images created for the deployment from your Docker registry.

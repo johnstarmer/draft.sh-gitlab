@@ -31,6 +31,30 @@ Install RBAC rules:
 ```
 kubectl create -f rbac.yaml
 ```
+### Install Gitlab 
+
+#WIP
+
+First we will install the core Gitlab components. You will need to specify:
+```global.hosts.domain```: the base domain of the wildcard host entry. (e.g. kumul.us for a wild card entry of ```*.kumul.us```.
+```global.hosts.externalIP```: the external IP that the wildcard DNS resolves to.
+```certmanager-issuer.email```: The email address to use when requesting new SSL certificates from Let's Encrypt.
+First run
+```
+helm repo add gitlab https://charts.gitlab.io/
+```
+```
+helm update
+```
+Before running the following, replace the details in {brackets} with your data.
+```
+helm upgrade --install gitlab gitlab/gitlab \
+  --timeout 600 \
+  --set global.hosts.domain={example.local} \
+  --set global.hosts.externalIP={10.10.10.10} \
+  --set certmanager-issuer.email={me@example.local}
+```
+
 ### Install Draft
 Follow the draft install instructions here:
 https://github.com/Azure/draft/blob/master/docs/quickstart.md
